@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet"> 
+	<title>LinkBucket</title>
+	<style>
+		html {
+			height: 100%;
+		}
+		body {
+			padding: 0;
+			margin: 0;
+			height: 100%;
+			color: #222;
+			font-family: 'Quicksand', sans-serif;
+		}
+		a, a:visited, a:focus {
+			color: #9f51a5;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #79397e; 
+		}
+		.container {
+			padding: 48px;
+			text-align: center;
+		}
+		.sub-title {
+			color: #bbb;
+		}
+		.button {
+			padding: 12px 24px;
+			border-radius: 0;
+			border: 1px solid transparent;
+			box-shadow: none;
+			box-sizing: border-box;
+			cursor: pointer;
+			text-transform: uppercase;
+			transition: all 0.2s;
+			-moz-transition: all 0.2s;
+			-webkit-transition: all 0.2s;
+			-ms-transition: all 0.2s;
+		}
+		.button--primary {
+			color: #fff;
+			background: #9f51a5;
+			border: 1px solid #9f51a5;
+		}
+		.button--primary:hover {
+			background: #79397e;
+		}
+		.input-form {
+			position: relative;
+			display: inline-block;
+			width: 720px;
+			margin: auto;
+		}
+		.input-form__row {
+			display: block;
+			padding: 6px 24px;
+		}
+		.input-form__input {
+			border-radius: 0;
+			border: none;
+			background: #f0f0f0;
+			font-size: 14px;
+			padding: 10px 18px;
+			color: #777;
+			box-sizing: border-box;
+			margin-bottom: 12px;
+			transition: all 0.2s;
+			-moz-transition: all 0.2s;
+			-webkit-transition: all 0.2s;
+			-ms-transition: all 0.2s;
+		}
+		.input-form__input--large {
+			font-size: 18px;
+			padding: 18px 24px;
+		}
+		.button--large {
+			font-size: 16px;
+			padding: 19.5px 24px;
+		}
+		.input-form__input--main {
+			background: #fff;
+			border: 1px solid #ddd;
+			width: 80%;
+			float: left;
+		}
+		.input-form__input--main:focus {
+			border: 1px solid #9f51a5;
+			color: #9f51a5;
+		}
+		.input-form__input--hidden {
+			height: 0;
+			border: 1px solid transparent;
+			padding-top: 0;
+			padding-bottom: 0;
+			opacity: 0;
+		}
+		.input-form__input--danger {
+			border: 1px solid #e74153;
+		}
+		.button--main {
+			width: 20%;
+			float: left;
+		}
+		.panel {
+			display: inline-block;
+			margin: 24px;
+			padding: 24px 48px;
+			box-shadow: 0 5px 5px 3px #eee;
+			transition: all 0.2s;
+			-moz-transition: all 0.2s;
+			-webkit-transition: all 0.2s;
+			-ms-transition: all 0.2s;
+
+		}
+		.panel:hover {
+			box-shadow: 0 5px 5px 5px #eaeaea;
+		}
+		.panel__title {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 18px;
+		}
+		.panel__content {
+			display: block;
+		}
+		.panel--hidden, .panel--hidden:hover {
+			height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			box-shadow: none;
+		}
+		.text-red {
+			color: #e74153;
+		}
+		.footer {
+			position: absolute;
+			bottom: 12px;
+			left: 0;
+			right: 0;
+			text-align: center;
+			padding: 18px;
+			color: #666;
+		}
+		.loading {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #fff;
+			opacity: 0.7;
+			color: #222;				
+		}
+		.loading__content {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.loading--hidden {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="title"><strong>Link</strong>Bucket</h1>
+		<h3 class="sub-title">Paste and share links with ease :)</h3>
+		<form id="input-form" class="input-form">
+			<div id="loading" class="loading loading--hidden">
+				<div class="loading__content">Processing...</div>
+			</div>
+			<div class="input-form__row">
+				<input class="input-form__input input-form__input--large input-form__input--main" type="text" id="link" name="link" placeholder="Paste link here..." autofocus>
+				<input id="submit-button" class="button button--large button--primary button--main" type="submit" value="Shorten">
+			</div>
+			<div class="input-form__row">
+				<input class="input-form__input input-form__input--main input-form__input--hidden" type="text" id="title" name="title" placeholder="Title">
+			</div>
+		</form>
+		<div style="display: block;">
+			<div id="result" class="panel panel--hidden">
+				<div id="result-title" class="panel__title"></div>
+				<div id="result-content" class="panel__content"></div>
+			</div>
+		</div>
+		<div class="footer">Crafted with <span class="text-red">&hearts;</span> by <a href="https://github.com/sdarmaputra" target="blank">sdarmaputra</a></div>
+	</div>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/public/app.js"></script>
+</body>
+</html>

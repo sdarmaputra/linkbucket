@@ -1,0 +1,49 @@
+{
+  "name": "Link",
+  "plural": "links",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+	"mysql": {
+		"table": "links"
+	}
+  },
+  "properties": {
+    "original_link": {
+      "type": "string",
+      "required": true
+    },
+    "shorten_link": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+	  "default": null
+    },
+    "visits": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "expiration_date": {
+      "type": "date",
+      "required": true
+    },
+    "created_at": {
+      "type": "date",
+	  "dataType": "timestamp",
+      "required": true,
+	  "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

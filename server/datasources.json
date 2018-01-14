@@ -1,0 +1,12 @@
+{
+  "linkbucket-mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "linkbucket",
+    "password": "dummy",
+    "name": "linkbucket-mysql",
+    "user": "dummy",
+    "connector": "mysql"
+  }
+}
